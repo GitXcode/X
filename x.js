@@ -32,16 +32,18 @@ contract Token is ERC20 {
     string public constant name     = "X";
     string public constant symbol   = "X";
     uint8  public constant decimals = 18;
-    uint256 public constant totalSupply = 1000000000;
 
-    mapping (address => mapping (address => uint256)) public allowed;
-    mapping(address => uint256) public balances;
+
+    mapping (address => mapping (address => uint256)) allowed;
+    mapping(address => uint256) balances;
 
     function Token(
+        uint256 initialSupply,
         string tokenName,
         string tokenSymbol
     ) public {
-        balances[msg.sender] = totalSupply * 10 ** uint(decimals);
+        totalSupply = initialSupply * 10 ** uint256(decimals);
+        balances[msg.sender] = totalSupply;
         tokenName = name; 
         tokenSymbol = symbol; 
     }
