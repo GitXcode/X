@@ -34,7 +34,7 @@ contract Token is ERC20 {
     uint8  public constant decimals = 18;
 
 
-    mapping (address => mapping (address => uint256)) allowed;
+    mapping(address => mapping (address => uint256)) allowed;
     mapping(address => uint256) balances;
 
     function Token(
